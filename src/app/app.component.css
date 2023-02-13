@@ -3,3 +3,8 @@ button, mat-button-toggle, mat-icon {
   margin-left: 2rem;
   margin-top: 1rem;
 }
+
+.badge {
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
