@@ -13,5 +13,7 @@ export class AppComponent {
   //     'thumbs-up',
   //     sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
   // }
-  title = 'ng_material';
+  title = 'material demo';
+
+  notifications = 7;
 }

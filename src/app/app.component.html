@@ -88,8 +88,8 @@
 <div>
 
   <!-- badge position -->
-  <div class="badge">
-    <span matBadge="5" >Notifications Default</span>
+  <div class="badge"> <!-- bound mat-badge to notifications in .ts file -->
+    <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0">Notifications Default</span>
   </div>
   <div class="badge">
     <span matBadge="5" matBadgePosition="below before">below before</span>
