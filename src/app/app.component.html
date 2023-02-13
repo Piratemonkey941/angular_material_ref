@@ -1,1 +1,114 @@
-<button mat-raised-button color="primary"> Hello Anthony</button>
+
+<!-- ==================== BUTTONS ====================-->
+<div id="buttons">
+  <!-- NOTES: -->
+  <div>
+    <button mat-button color="primary"> Button</button>
+    <button mat-raised-button color="primary"> Raised</button>
+    <button mat-flat-button color="primary"> Flat </button>
+    <button mat-stroked-button color="primary"> Stroked </button>
+  </div>
+
+  <div>
+    <button mat-icon-button color="accent"> Icon</button>
+    <button mat-fab > Fab</button>
+    <button mat-mini-fab> Mini</button>
+  </div>
+
+  <div>
+    <button mat-button color="primary"> Primary</button>
+  <button mat-button color="warn" disableRipple> Warn</button>   <!-- RIPPLE DISABLED -->
+    <button mat-button color="accent"> Accent</button>
+  </div>
+
+  <div>
+    <button mat-raised-button color="primary"> Primary</button>
+    <button mat-raised-button color="warn"> Warn</button>
+    <button mat-raised-button color="accent"> Accent</button>
+  </div>
+
+  <h3>Icon Buttons</h3>
+  <div class="example-button-row">
+    <button mat-icon-button>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="primary">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="accent">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button color="warn">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+    <button mat-icon-button disabled>
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+  </div>
+</div>
+
+
+<!-- ==================== BUTTON TOGGLE ====================-->
+<div id="button-toggle">
+  <!-- NOTES: has no color option, -->
+  <div>
+
+    <mat-button-toggle #toggleBtn >Toggle</mat-button-toggle>
+    {{ toggleBtn.checked}}
+
+  </div>
+
+  <!-- NOTES: value attr is feeding group.value to reactivly change selected option when toggled -->
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+                Left
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+                Center
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+                Right
+    </mat-button-toggle>
+    <mat-button-toggle value="justify" disabled>
+                Disabled
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="example-selected-value">Selected value: {{group.value}}</div>
+</div>
+
+<!-- ==================== ICONS ====================-->
+
+ <!-- NOTES:  -->
+<div>
+  <mat-icon color="primary">thumb_up</mat-icon>
+</div>
+
+<!-- ==================== TYPOGRAPHY ====================-->
+
+<div id="typography">
+  <!-- NOTES:  -->
+  <div class="mat-display-4">mat-display-4</div>
+  <div class="mat-display-3">mat-display-3</div>
+  <div class="mat-display-2">mat-display-2</div>
+  <div class="mat-display-1">mat-display-1</div>
+
+  <div class="mat-headline">This is for h1</div>
+  <div class="mat-title">This is for h2</div>
+  <div class="mat-subheading-2">This is for h3</div>
+  <div class="mat-subheading-1">This is for h4</div>
+
+  <div class="mat-body-1">This is for body text</div>
+  <div class="mat-body-2">This is for bold body text</div>
+  <div class="mat-caption">This is for captions</div>
+
+  <div class="mat-typography">
+
+    <h1 >mat-display-4</h1>
+    <h2 >mat-display-3</h2>
+    <h3 >mat-display-2</h3>
+    <h4 >mat-display-1</h4>
+  </div>
+</div>
+
+
+
