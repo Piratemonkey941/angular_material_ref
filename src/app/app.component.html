@@ -15,10 +15,18 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')"mode="side" [(opened)]="opened">Side Content</mat-sidenav>
   <mat-sidenav-content>
-    Side Content
-    <button mat-raised-button  (click)="sidenav.open()">Open</button>
-    <button mat-raised-button  (click)="sidenav.close()">Close</button>
-    <button mat-raised-button  (click)="sidenav.toggle()">Toggle</button>
+    <div>
+      Side Content
+      <button mat-raised-button  (click)="sidenav.open()">Open</button>
+      <button mat-raised-button  (click)="sidenav.close()">Close</button>
+      <button mat-raised-button  (click)="sidenav.toggle()">Toggle</button>
+    </div>
+    <!-- <div>
+      <mat-menu>
+        <button mat-raised-button mat-menu-item>Front End </button>
+        <button mat-raised-button mat-menu-item>Backend </button>
+      </mat-menu>
+    </div> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
 
