@@ -8,3 +8,26 @@ button, mat-button-toggle, mat-icon {
   margin-left: 3rem;
   margin-top: 1rem;
 }
+
+
+.navbar
+ {
+  justify-content: space-between;
+ }
+
+ .navSpan {
+  padding-left: 2rem;
+ }
+
+ mat-sidenav-container {
+  height: 100% ;
+
+ }
+
+ mat-sidenav,  mat-sidenav-content {
+  padding: 16px;
+ }
+ mat-sidenav {
+  background-color: lightcoral;
+  width: 200px;
+ }

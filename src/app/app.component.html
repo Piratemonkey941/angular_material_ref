@@ -1,3 +1,29 @@
+<!-- ==================== NAVIGATION ====================-->
+<!-- ==================== NAV BAR ====================-->
+
+<mat-toolbar color="primary" class="navbar">
+  <div >CodEvolution</div>
+  <div>
+    <span class="navSpan">Home</span>
+    <span class="navSpan">About</span>
+    <span class="navSpan">Services</span>
+  </div>
+</mat-toolbar>
+
+<!-- ==================== SIDE NAV BAR ====================-->
+<!-- NOTES: modes for sidenav: over, push, side -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')"mode="side" [(opened)]="opened">Side Content</mat-sidenav>
+  <mat-sidenav-content>
+    Side Content
+    <button mat-raised-button  (click)="sidenav.open()">Open</button>
+    <button mat-raised-button  (click)="sidenav.close()">Close</button>
+    <button mat-raised-button  (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Initial method to toggle sidebar -->
+<!-- <button mat-raised-button  (click)="opened=!opened">Sidenav</button> -->
 
 <!-- ==================== BUTTONS ====================-->
 <div id="buttons">
@@ -142,8 +168,8 @@
 </div>
 <!-- ==================== TYPOGRAPHY ====================-->
 
+<!-- NOTES:  -->
 <div id="typography">
-  <!-- NOTES:  -->
   <div class="mat-display-4">mat-display-4</div>
   <div class="mat-display-3">mat-display-3</div>
   <div class="mat-display-2">mat-display-2</div>

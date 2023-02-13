@@ -11,6 +11,7 @@ export class AppComponent {
 
   notifications = 7;
   showSpinner = false;
+  opened = false;
 
   loadData(){
     this.showSpinner = true;
@@ -18,4 +19,10 @@ export class AppComponent {
       this.showSpinner = false;
     }, 5000)
   }
+
+  log(state: any) {
+    console.log(state)
+  }
+
+
 }
