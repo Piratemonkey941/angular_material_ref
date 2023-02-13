@@ -7,13 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  // constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer){
-  //   iconRegistry.addSvgIcon(
-  //     'thumbs-up',
-  //     sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
-  // }
   title = 'material demo';
 
   notifications = 7;
+  showSpinner = false;
+
+  loadData(){
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+    }, 5000)
+  }
 }

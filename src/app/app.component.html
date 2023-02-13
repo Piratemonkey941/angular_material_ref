@@ -130,6 +130,16 @@
 
 </div>
 
+<!-- ==================== Spinner ====================-->
+
+<div>
+  <!-- NOTES: value number displays percent -->
+  <div>
+    <mat-progress-spinner value="40"></mat-progress-spinner>
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <button mat-raised-button color="primary" (click)="loadData()">Load Data</button>
+  </div>
+</div>
 <!-- ==================== TYPOGRAPHY ====================-->
 
 <div id="typography">
