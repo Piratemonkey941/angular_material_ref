@@ -13,6 +13,8 @@ export class AppComponent {
   showSpinner = false;
   opened = false;
 
+  selectedValue: string = '';
+
   logChange(index: any) {
     console.log(index)
   }
