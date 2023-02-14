@@ -20,6 +20,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule,  } from '@angular/material/core';
 
 // import {  } from '';
 
@@ -46,6 +50,12 @@ const MaterialComponants =
   MatSelectModule,
   MatAutocompleteModule,
   ReactiveFormsModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+
+
 ]
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { DateFilterFn } from '@angular/material/datepicker';
 
 
 
@@ -48,7 +49,23 @@ export class AppComponent implements OnInit {
     );
   }
 
+  // <!-- ==================== Calender ===================-->
+
+
+  minDate = new Date();
+  maxDate = new Date(2024, 0, 1 );
+
+  dateFilter: DateFilterFn<Date | null> = (date: Date | null) => {
+    if (!date) {
+      return true; // Allow null dates
+    }
+    const day = date.getDay();
+    return day !== 0 && day !== 6; // Only allow weekdays
+  };
+
   // <!-- ====================  ===================-->
+
+
 
     displayFunction(option: any): string {
       return option.name;

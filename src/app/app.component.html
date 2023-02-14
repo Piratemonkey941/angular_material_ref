@@ -10,9 +10,48 @@
   </div>
 </mat-toolbar>
 
-<!-- ==================== AUTOCOMPLETE ===================-->
+<!-- ==================== DATE PICKER ===================-->
+<!-- NOTES: startView="multi-year, year, " -->
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Date Picker</div>
+  <mat-form-field>
+    <input type="text" matInput [matDatepicker]="myDatepicker" [matDatepickerFilter]="dateFilter">
+    <mat-datepicker-toggle [for]="myDatepicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker ></mat-datepicker>
+  </mat-form-field>
+
+</div>
+
+<!-- <input type="text" matInput [matDatepicker]="myDatepicker" [min]="minDate" [max]="maxDate"> -->
+
+<!-- ==================== CHEBOXES & RADIO ===================-->
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Checkboxes</div>
+  <mat-checkbox color="primary">
+    Subscribe
+  </mat-checkbox>
+  <mat-checkbox color="warn" style="margin-left: 1em;">
+    Subscribe
+  </mat-checkbox>
+  <mat-checkbox labelPosition="before" style="margin-left: 1em;">
+    Subscribe
+  </mat-checkbox>
+
+</div>
+
 
 <div style="margin: 3em;">
+  <div class="mat-subheading-2">Radios</div>
+  <mat-radio-group>
+      <mat-radio-button value="angular"> Angular </mat-radio-button>
+      <mat-radio-button value="react" color="primary" style="margin-left: 1em;"> React </mat-radio-button>
+      <mat-radio-button value="vue" color="warn" style="margin-left: 1em;"> Vue </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<!-- ==================== AUTOCOMPLETE ===================-->
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Auto Complete</div>
   <form>
     <mat-form-field>
       <input matInput [matAutocomplete]="auto1" type="text" name="" id="">
@@ -38,7 +77,8 @@
 </div>
 
   <!-- ==================== Filtered Autocomplete ===================-->
-<div style="margin: 3em;">
+  <div style="margin: 3em;">
+  <div class="mat-subheading-2">Filtered Auto Complete</div>
   <form>
     <mat-form-field>
       <input type="text" matInput [matAutocomplete]="auto3" [formControl]="myControl">
@@ -53,8 +93,8 @@
 
 
 <!-- ==================== SELECT===================-->
-
-  <div style="margin: 3em;">
+<div style="margin: 3em;">
+    <div class="mat-subheading-2">Select</div>
     <mat-form-field>
       <mat-label>Topic</mat-label>
       <mat-select [(value)]="selectedValue" multiple>
@@ -77,6 +117,7 @@
 <!-- ==================== INPUTS===================-->
 <!-- Notes: floatLabel="never, always, auto(default)", required="" adds star and requires -->
 <div style="margin: 2em;" >
+  <div class="mat-subheading-2">Inputs</div>
   <mat-form-field
     floatLabel="auto"
     hideRequiredMarker
@@ -102,8 +143,8 @@
 </div>
 
 <!-- ==================== MAT STEPPER===================-->
-
-<div>
+<div style="margin-left: 3em;">
+  <div class="mat-subheading-2">Stepper</div>
   <mat-horizontal-stepper linear>
     <mat-step label="Shipping Address" completed="true">
       <p>Shipping Address Details</p>
@@ -154,7 +195,8 @@
 </div> -->
 
 <!-- ==================== MAT TABS===================-->
-<div>
+<div style="margin-left: 3em;">
+  <div class="mat-subheading-2">Tabs</div>
   <mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
     <mat-tab label="Angular"> Angular content</mat-tab>
     <mat-tab label="React">React content</mat-tab>
@@ -164,24 +206,26 @@
 </div>
 
 <!-- ==================== MAT CARDS===================-->
-
-<mat-card>
-  <mat-card-title>
-    Card Title
-  </mat-card-title>
-  <mat-card-content>
-    This is the card content
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-flat-button color="accent"> Login</button>
-  </mat-card-actions>
-</mat-card>
+<div class="mat-subheading-2" style="margin-left: 3em;">Cards
+  <mat-card >
+    <mat-card-title>
+      Card Title
+    </mat-card-title>
+    <mat-card-content>
+      This is the card content
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-flat-button color="accent"> Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 
 <!-- ==================== MAT EXPANSION===================-->
   <!-- NOTES: multi="true" allows both to be open at same time, hideToggle hides arrow button -->
   <!-- <mat-accordion multi="true" hideToggle=""> -->
-  <DIV>
+    <DIV style="margin-left: 3em;">
+    <div class="mat-subheading-2">Expansions</div>
     <mat-accordion >
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -224,8 +268,8 @@
   </DIV>
 
  <!-- ==================== MAT GRID LIST===================-->
-
- <div>
+ <div style="margin: 3em;">
+   <div class="mat-subheading-2">Grid Lists</div>
   <mat-grid-list cols="2" rowHeight="fit" style="height: 200px;" gutterSize="10px">
     <!-- <mat-grid-tile rowspan="2">Tile 1</mat-grid-tile> -->
     <!-- <mat-grid-tile colspan="2">Tile 1</mat-grid-tile> -->
@@ -239,6 +283,7 @@
 
 <!-- ==================== SIDE NAV BAR ====================-->
 <!-- NOTES: modes for sidenav: over, push, side -->
+<div class="mat-subheading-2" style="margin: 2em;">Side Bar</div>
 <mat-sidenav-container>
   <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')"mode="side" [(opened)]="opened">Side Content</mat-sidenav>
   <mat-sidenav-content>
@@ -250,6 +295,7 @@
     </div>
     <!-- ==================== MAT MENU ====================-->
     <!-- NOTES: options xPosition="after, before" yPosition="above, below" -->
+    <div class="mat-subheading-2" style="margin: 2em;">Menus</div>
     <div>
       <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
         <button mat-menu-item [mat-menu-trigger-for]="subMenu"> FrontEnd</button>
@@ -259,7 +305,8 @@
       <button mat-raised-button [mat-menu-trigger-for]="appMenu" > Menu</button>
     </div>
     <!-- ==================== MAT MENU NESTED====================-->
-    <div>
+    <div style="margin: 2em;">
+      <div class="mat-subheading-2" >Nested Menu</div>
       <mat-menu #subMenu="matMenu">
         <button mat-menu-item> Angular</button>
         <button mat-menu-item>React</button>
@@ -267,7 +314,8 @@
       </mat-menu>
     </div>
     <!-- ==================== MAT MENU LAZY/REACTIVE====================-->
-    <div>
+    <div style="margin: 2em;">
+      <div class="mat-subheading-2">Lazy Menu</div>
       <mat-menu #lazyMenu="matMenu" >
         <ng-template matMenuContent let-name="name" let-hobby="hobby">
 
@@ -281,7 +329,8 @@
       <button mat-raised-button [matMenuTriggerData]="{name: 'CodEvolution', hobby: 'teaching' }" [mat-menu-trigger-for]="lazyMenu" > LM Button 2</button>
     </div>
     <!-- ==================== MAT LISTS====================-->
-    <div>
+    <div style="margin: 2em;">
+      <div class="mat-subheading-2">Lists</div>
       <mat-list dense>
         <mat-list-item >Item 1 DENSE Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro dolorem vero odit
           ipsam magni autem suscipit, tempore sed deserunt laudantium saepe aliquid ab voluptatum impedit
@@ -295,6 +344,7 @@
         <mat-list-item>Item 2</mat-list-item>
       </mat-list>
       <!-- ==================== MAT LISTS W/ICONS====================-->
+      <div class="mat-subheading-2">List with Icons</div>
       <mat-list >
         <mat-list-item>
           <mat-icon matListIcon>home</mat-icon>
@@ -311,6 +361,7 @@
       </mat-list>
 
       <!-- ==================== MAT LISTS NAV====================-->
+      <div class="mat-subheading-2">Nav Lists</div>
       <mat-nav-list>
         <a mat-list-item href="#">Home</a>
         <a mat-list-item href="#">About</a>
@@ -327,7 +378,9 @@
 <!-- <button mat-raised-button  (click)="opened=!opened">Sidenav</button> -->
 
 <!-- ==================== BUTTONS ====================-->
-<div id="buttons">
+<div style="margin: 2em;">
+<div id="buttons" >
+  <div class="mat-subheading-2">Buttons</div>
   <!-- NOTES: -->
   <div>
     <button mat-button color="primary"> Button</button>
@@ -353,9 +406,11 @@
     <button mat-raised-button color="warn"> Warn</button>
     <button mat-raised-button color="accent"> Accent</button>
   </div>
+</div>
 
-  <h3>Icon Buttons</h3>
-  <div class="example-button-row">
+<div style="margin: 2em;">
+  <div class="mat-subheading-2">Icon Buttons</div>
+  <div class="example-button-row" >
     <button mat-icon-button>
       <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
     </button>
@@ -373,10 +428,12 @@
     </button>
   </div>
 </div>
+</div>
 
 
 <!-- ==================== BUTTON TOGGLE ====================-->
-<div id="button-toggle">
+<div id="button-toggle" style="margin: 2em;">
+  <div class="mat-subheading-2">Button Toggle</div>
   <!-- NOTES: has no color option, -->
   <div>
 
@@ -404,71 +461,83 @@
 </div>
 
 <!-- ==================== ICONS ====================-->
+<div style="margin: 2em;">
 
-<div>
-  <!-- NOTES: https://fonts.google.com/icons?selected=Material+Icons -->
-  <mat-icon color="primary">thumb_up</mat-icon>
+  <div class="mat-subheading-2" >Icons</div>
+  <div>
+    <!-- NOTES: https://fonts.google.com/icons?selected=Material+Icons -->
+    <mat-icon color="primary">thumb_up</mat-icon>
+  </div>
 </div>
 
 <!-- ==================== BADGES ====================-->
+<div style="margin: 2em;">
 
-<div>
+  <div class="mat-subheading-2">Badges</div>
+  <div>
 
-  <!-- badge position -->
-  <div class="badge"> <!-- bound mat-badge to notifications in .ts file -->
-    <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0">Notifications Default</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgePosition="below before">below before</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgePosition="below after">below after</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgePosition="above before">above before</span>
-  </div>
+    <!-- badge position -->
+    <div class="badge"> <!-- bound mat-badge to notifications in .ts file -->
+      <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0">Notifications Default</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgePosition="below before">below before</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgePosition="below after">below after</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgePosition="above before">above before</span>
+    </div>
 
-  <div class="badge">
-    <span matBadge="5" matBadgePosition="above after">above after</span>
-  </div>
+    <div class="badge">
+      <span matBadge="5" matBadgePosition="above after">above after</span>
+    </div>
 
-  <!-- badge size -->
-  <div class="badge">
-    <span matBadge="5" matBadgeSize="small">Notifications Small</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgeSize="medium">Notifications Medium</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgeSize="large">Notifications Large</span>
-  </div>
+    <!-- badge size -->
+    <div class="badge">
+      <span matBadge="5" matBadgeSize="small">Notifications Small</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgeSize="medium">Notifications Medium</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgeSize="large">Notifications Large</span>
+    </div>
 
-  <!-- badge color/ overlap-->
-  <!-- Notes: overlap icons, do not overlap text -->
-  <div class="badge">
-    <span matBadge="5" matBadgeColor="primary"  matBadgeOverlap="false">Primary Badge</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5" matBadgeColor="accent"  matBadgeOverlap="false">Accent Badge</span>
-  </div>
-  <div class="badge">
-    <span matBadge="5"  matBadgeColor="warn"  matBadgeOverlap="false">Warn Badge</span>
-  </div>
+    <!-- badge color/ overlap-->
+    <!-- Notes: overlap icons, do not overlap text -->
+    <div class="badge">
+      <span matBadge="5" matBadgeColor="primary"  matBadgeOverlap="false">Primary Badge</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5" matBadgeColor="accent"  matBadgeOverlap="false">Accent Badge</span>
+    </div>
+    <div class="badge">
+      <span matBadge="5"  matBadgeColor="warn"  matBadgeOverlap="false">Warn Badge</span>
+    </div>
 
+  </div>
 </div>
 
-<!-- ==================== Spinner ====================-->
+  <!-- ==================== Spinner ====================-->
+  <div style="margin: 2em;">
 
-<div>
-  <!-- NOTES: value number displays percent -->
-  <div>
-    <mat-progress-spinner value="40"></mat-progress-spinner>
-    <mat-spinner *ngIf="showSpinner"></mat-spinner>
-    <button mat-raised-button color="primary" (click)="loadData()">Load Data</button>
-  </div>
+    <div class="mat-subheading-2">Spinners</div>
+    <div>
+      <!-- NOTES: value number displays percent -->
+      <div>
+        <mat-progress-spinner value="40"></mat-progress-spinner>
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        <button mat-raised-button color="primary" (click)="loadData()">Load Data</button>
+      </div>
+    </div>
 </div>
 <!-- ==================== TYPOGRAPHY ====================-->
+<div style="margin: 2em;">
 
+
+<div class="mat-subheading-2">Typography</div>
 <!-- NOTES:  -->
 <div id="typography">
   <div class="mat-display-4">mat-display-4</div>
@@ -493,6 +562,6 @@
     <h4 >mat-display-1</h4>
   </div>
 </div>
-
+</div>
 
 
