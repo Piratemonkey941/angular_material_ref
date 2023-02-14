@@ -31,3 +31,7 @@ button, mat-button-toggle, mat-icon {
   background-color: lightcoral;
   width: 200px;
  }
+
+ mat-grid-tile {
+  background-color: rgb(150, 230, 255);
+ }
