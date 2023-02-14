@@ -10,6 +10,48 @@
   </div>
 </mat-toolbar>
 
+<!-- ==================== AUTOCOMPLETE ===================-->
+
+<div style="margin: 3em;">
+  <form>
+    <mat-form-field>
+      <input matInput [matAutocomplete]="auto1" type="text" name="" id="">
+      <mat-autocomplete #auto1="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+<div style="margin: 3em;">
+  <form>
+    <mat-form-field>
+      <input matInput [matAutocomplete]="auto2" [formControl]="myControl">
+      <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFunction">
+        <mat-option *ngFor="let option of objectOptions" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+
+  <!-- ==================== Filtered Autocomplete ===================-->
+<div style="margin: 3em;">
+  <form>
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto3" [formControl]="myControl">
+      <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFunction">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+
+
 <!-- ==================== SELECT===================-->
 
   <div style="margin: 3em;">
