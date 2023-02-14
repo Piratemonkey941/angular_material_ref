@@ -13,6 +13,10 @@ export class AppComponent {
   showSpinner = false;
   opened = false;
 
+  logChange(index: any) {
+    console.log(index)
+  }
+
   loadData(){
     this.showSpinner = true;
     setTimeout(() => {

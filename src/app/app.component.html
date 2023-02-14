@@ -10,6 +10,68 @@
   </div>
 </mat-toolbar>
 
+<!-- ==================== MAT STEPPER===================-->
+
+<div>
+  <mat-horizontal-stepper linear>
+    <mat-step label="Shipping Address" completed="true">
+      <p>Shipping Address Details</p>
+    </mat-step>
+    <mat-step label="Billing Address" completed="optional">
+      <p>Billing Address Details</p>
+      <div>
+        <button mat-button matStepperPrevious> Back </button>
+        <button mat-button matStepperNext> Next </button>
+      </div>
+    </mat-step>
+    <mat-step label="Place Order" completed="false">
+      <p>Order Details</p>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+<div>
+  <mat-vertical-stepper linear>
+    <mat-step label="Shipping Address" completed="true">
+      <p>Shipping Address Details</p>
+    </mat-step>
+    <mat-step label="Billing Address" completed="optional">
+      <p>Billing Address Details</p>
+      <div>
+        <button mat-button matStepperPrevious> Back </button>
+        <button mat-button matStepperNext> Next </button>
+      </div>
+    </mat-step>
+    <mat-step label="Place Order" completed="false">
+      <p>Order Details</p>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+
+<!-- <div>
+  <mat-horizontal-stepper >
+    <mat-step label="Shipping Address">Shipping Address Details</mat-step>
+    <mat-step label="Billing Address">
+      <p>Billing Address Details</p>
+      <div>
+        <button mat-button matStepperPrevious> Back </button>
+        <button mat-button matStepperNext> Next </button>
+      </div>
+    </mat-step>
+    <mat-step label="Place Order">Order Details</mat-step>
+  </mat-horizontal-stepper>
+</div> -->
+
+<!-- ==================== MAT TABS===================-->
+<div>
+  <mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+    <mat-tab label="Angular"> Angular content</mat-tab>
+    <mat-tab label="React">React content</mat-tab>
+    <mat-tab label="Vue">Vue content</mat-tab>
+  </mat-tab-group>
+  {{tabRef.selectedIndex}}
+</div>
+
 <!-- ==================== MAT CARDS===================-->
 
 <mat-card>
