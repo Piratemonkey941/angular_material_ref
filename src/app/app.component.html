@@ -21,12 +21,52 @@
       <button mat-raised-button  (click)="sidenav.close()">Close</button>
       <button mat-raised-button  (click)="sidenav.toggle()">Toggle</button>
     </div>
-    <!-- <div>
-      <mat-menu>
-        <button mat-raised-button mat-menu-item>Front End </button>
-        <button mat-raised-button mat-menu-item>Backend </button>
-      </mat-menu>
-    </div> -->
+    <!-- ==================== MAT MENU ====================-->
+    <!-- NOTES: options xPosition="after, before" yPosition="above, below" -->
+    <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+      <button mat-menu-item [mat-menu-trigger-for]="subMenu"> FrontEnd</button>
+      <button mat-menu-item>Backend</button>
+    </mat-menu>
+
+    <button mat-raised-button [mat-menu-trigger-for]="appMenu" > Menu</button>
+
+    <!-- ==================== MAT MENU NESTED====================-->
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item> Angular</button>
+      <button mat-menu-item>React</button>
+      <button mat-menu-item>Vue</button>
+    </mat-menu>
+
+    <!-- ==================== MAT MENU LAZY/REACTIVE====================-->
+
+    <mat-menu #lazyMenu="matMenu" >
+      <ng-template matMenuContent let-name="name" let-hobby="hobby">
+
+        <button mat-menu-item> Settings {{name}}</button>
+        <button mat-menu-item> Logout {{name}}</button>
+        <button mat-menu-item> Hobby is {{hobby}}</button>
+      </ng-template>
+    </mat-menu>
+
+    <button mat-raised-button [matMenuTriggerData]="{name: 'Vishwas', hobby: 'football' }" [mat-menu-trigger-for]="lazyMenu" > LM Button 1 </button>
+    <button mat-raised-button [matMenuTriggerData]="{name: 'CodEvolution', hobby: 'teaching' }" [mat-menu-trigger-for]="lazyMenu" > LM Button 2</button>
+
+<!--
+    <button
+      mat-raised-button
+      [matMenuTriggerData]="{name: 'Vishwas'}"
+      [mat-menu-trigger-for]="lazyMenu"
+    >
+      LM Button 1
+    </button>
+    <button
+      mat-raised-button
+      [matMenuTriggerData]="{name: 'CodEvolution'}"
+      [mat-menu-trigger-for]="lazyMenu"
+    >
+        LM Button 2
+    </button> -->
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 
