@@ -3,9 +3,20 @@ import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DateFilterFn } from '@angular/material/datepicker';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
-
-
+// <!-- ==================== Snack Bar ===================-->
+@Component({
+  selector: 'custom-snackbar',
+  template: `<span style="color: orange">Custom Snackbar</span>`,
+})
+export class CustomSnackBarComponant implements OnInit {
+  ngOnInit() {
+  }
+}
+// <!-- ==================== ===================-->
 
 @Component({
   selector: 'app-root',
@@ -13,6 +24,10 @@ import { DateFilterFn } from '@angular/material/datepicker';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
+
+
   title = 'material demo';
   myControl = new FormControl();
 
@@ -30,6 +45,34 @@ export class AppComponent implements OnInit {
      { name: 'React'},
      { name: 'Vue'},
     ];
+
+  // <!-- ==================== Dialog ===================-->
+
+openDialog(){
+  let dialogRef = this.dialog.open(DialogComponent, {data: {name: 'Anthony'}});
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog Result: ${result}`)
+  })
+}
+
+  // <!-- ==================== Snack Bar ===================-->
+
+  openSnackBar(message:string, action:string) {
+    let snackBarRef = this.snackBar.open(message, action, {duration: 2000});
+
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log('Snack Bar was dismissed');
+    });
+
+    snackBarRef.onAction().subscribe(() => {
+      console.log('Snack Bar action was triggered');
+    });
+  }
+    openCustomSnackBar(){
+      this.snackBar.openFromComponent(CustomSnackBarComponant, {duration: 2000})
+    }
+
 
   // <!-- ==================== Filtered Autocomplete ===================-->
 
@@ -91,3 +134,12 @@ export class AppComponent implements OnInit {
 
 
 }
+
+// @Component({
+//   selector: 'custom-snackbar',
+//   template: `<span style="color: orange">Custom Snackbar</span>`,
+// })
+// export class CustomSnackBarComponant implements OnInit {
+//   ngOnInit() {
+//   }
+// }

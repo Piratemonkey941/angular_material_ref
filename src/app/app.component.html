@@ -10,8 +10,55 @@
   </div>
 </mat-toolbar>
 
+<!-- ==================== Dialog/Modals ===================-->
+<!-- NOTES:-->
+
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Snack Bar</div>
+  <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+
+</div>
+
+<!-- ==================== Snack Bar ===================-->
+<!-- NOTES:-->
+
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Snack Bar</div>
+    <button
+      mat-button
+      (click)="openSnackBar('Item Deleted', 'Undo')"
+    >
+      Delete
+    </button>
+    <button
+      mat-button
+      (click)="openCustomSnackBar()"
+    >
+      Show custom Snack Bar
+    </button>
+
+</div>
+
+<!-- ==================== Tooltip===================-->
+<!-- NOTES: matTooltipPosition can also be before, above and below -->
+
+<div style="margin: 3em;">
+  <div class="mat-subheading-2">Checkboxes</div>
+    <button
+      mat-raised-button
+      matTooltip="Welcome to Angular Material"
+      matTooltipPosition="after"
+      matTooltipShowDelay="600"
+      matTooltipHideDelay="5000"
+    >
+      Hello!
+    </button>
+
+</div>
+
 <!-- ==================== DATE PICKER ===================-->
 <!-- NOTES: startView="multi-year, year, " -->
+
 <div style="margin: 3em;">
   <div class="mat-subheading-2">Date Picker</div>
   <mat-form-field>
