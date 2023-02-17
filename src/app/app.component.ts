@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -6,16 +6,52 @@ import { DateFilterFn } from '@angular/material/datepicker';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
-// <!-- ==================== Snack Bar ===================-->
-@Component({
-  selector: 'custom-snackbar',
-  template: `<span style="color: orange">Custom Snackbar</span>`,
-})
-export class CustomSnackBarComponant implements OnInit {
-  ngOnInit() {
-  }
+export interface UserData {
+  id: string;
+  name: string;
+  progress: string;
+  fruit: string;
 }
+
+/** Constants used to fill up our data base. */
+const FRUITS: string[] = [
+  'blueberry',
+  'lychee',
+  'kiwi',
+  'mango',
+  'peach',
+  'lime',
+  'pomegranate',
+  'pineapple',
+];
+const NAMES: string[] = [
+  'Maia',
+  'Asher',
+  'Olivia',
+  'Atticus',
+  'Amelia',
+  'Jack',
+  'Charlotte',
+  'Theodore',
+  'Isla',
+  'Oliver',
+  'Isabella',
+  'Jasper',
+  'Cora',
+  'Levi',
+  'Violet',
+  'Arthur',
+  'Mia',
+  'Thomas',
+  'Elizabeth',
+];
+
+
 // <!-- ==================== ===================-->
 
 @Component({
@@ -23,10 +59,39 @@ export class CustomSnackBarComponant implements OnInit {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    private changeDetectorRefs: ChangeDetectorRef,
+    private paginatorIntl: MatPaginatorIntl
+    ) {
 
+    // Create 100 users
+    const users = Array.from({length: 100}, (_, k) => this.createNewUser(k + 1));
+
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource(users);
+  }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator ;
+  @ViewChild(MatSort) sort: MatSort = new MatSort();
+
+  ngAfterViewInit() {
+
+    this.dataSource.sort = this.sort;
+  }
+
+  ngOnInit() {
+    this.dataSource.paginator = new MatPaginator(this.paginatorIntl, this.changeDetectorRefs);
+    this.dataSource.sort = this.sort;
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
 
   title = 'material demo';
   myControl = new FormControl();
@@ -45,6 +110,35 @@ export class AppComponent implements OnInit {
      { name: 'React'},
      { name: 'Vue'},
     ];
+
+  // <!-- ==================== Data Table ===================-->
+
+  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  dataSource: MatTableDataSource<UserData>;
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  createNewUser(id: number): UserData {
+    const name =
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
+      ' ' +
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
+      '.';
+
+    return {
+      id: id.toString(),
+      name: name,
+      progress: Math.round(Math.random() * 100).toString(),
+      fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
+    };
+  }
 
   // <!-- ==================== Dialog ===================-->
 
@@ -78,12 +172,7 @@ openDialog(){
 
   filteredOptions: Observable<string[]> = of([]);
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-        map(value => this._filter(value))
-    )
-  }
+
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -133,6 +222,16 @@ openDialog(){
   }
 
 
+}
+
+// <!-- ==================== Snack Bar ===================-->
+@Component({
+  selector: 'custom-snackbar',
+  template: `<span style="color: orange">Custom Snackbar</span>`,
+})
+export class CustomSnackBarComponant implements OnInit {
+  ngOnInit() {
+  }
 }
 
 // @Component({

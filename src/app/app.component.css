@@ -35,3 +35,7 @@ button, mat-button-toggle, mat-icon {
  mat-grid-tile {
   background-color: rgb(150, 230, 255);
  }
+
+ table {
+  width: 100%;
+}
