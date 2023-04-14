@@ -13,13 +13,13 @@ import { DialogComponent } from './dialog/dialog.component';
   declarations: [
     AppComponent,
     CustomSnackBarComponant,
-    DialogComponent
+    // DialogComponent
   ],
 
-  entryComponents: [
-    CustomSnackBarComponant,
-    DialogComponent
-  ],
+  // entryComponents: [
+  //   CustomSnackBarComponant,
+  //   DialogComponent
+  // ],
 
   imports: [
     BrowserModule,
